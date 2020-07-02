@@ -1,11 +1,14 @@
-var axios = require('axios');
+const axios = require('axios');
 
-var config = {
+const config = {
     method: 'get',
     url: 'https://jsonplaceholder.typicode.com/todos',
     headers: {}
 };
 
+//
+// promisse
+//
 axios(config)
     .then(function (response) {
         console.log(response.data);
@@ -13,3 +16,16 @@ axios(config)
     .catch(function (error) {
         console.log(error);
     });
+
+//
+// async / await
+//
+(async () => {
+    let res = await axios.get(config.url);
+    console.log(res.data);
+})()
+
+// request = async () => {
+//     let res = await axios.get(config.url);
+//     return res.data;
+// };
